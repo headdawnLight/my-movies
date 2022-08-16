@@ -1,0 +1,24 @@
+.App-footer {
+  font-size: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  background-color: yellow;
+  border-top: 1px solid black;
+}
+.footer-text {
+  text-align: center;
+}
+
+.footer-link {
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+@media (max-width: 576px) {
+  .App-footer {
+    font-size: 1.5rem;
+  }
+}

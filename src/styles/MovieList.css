@@ -1,3 +1,16 @@
 .App-section {
   min-height: 80vh;
 }
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.movie-box {
+  margin: 3rem;
+  box-shadow: 2px 2px 2px gray;
+}

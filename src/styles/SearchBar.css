@@ -1,0 +1,18 @@
+.header-form input {
+  padding: 0.5rem 1rem;
+  font-size: 1.8rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+}
+
+@media (max-width: 576px) {
+  .header-form input {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 476px) {
+  .header-form input {
+    margin-bottom: 1rem;
+  }
+}

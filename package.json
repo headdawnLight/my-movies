@@ -4,7 +4,7 @@
   "description": "rest api on omdb api",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "test": "mocha --exit",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },

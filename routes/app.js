@@ -1,22 +1,19 @@
 // import required packages
 require("dotenv").config();
 const express = require("express");
+const router = express.Router();
 const axios = require("axios");
 const redis = require("redis");
 
-// express server
-const app = express();
-
 // redis client on connect
-let redisClient;
+const redisClient = redis.createClient({
+  url: process.env.REDIS_URL,
+  tls: {
+    rejectUnauthorized: false,
+  },
+});
 
 (async () => {
-  redisClient = redis.createClient({
-    host: process.env.REDIS_HOST,
-    port: process.env.REDIS_PORT,
-    password: process.env.REDIS_PASS,
-  });
-
   redisClient.on("connect", () => {
     console.log("Connected to redis successfully!");
   });
@@ -83,6 +80,6 @@ async function cacheData(req, res, next) {
   }
 }
 
-app.get("/api/search", cacheData, getMoviesData);
+router.get("/api/search", cacheData, getMoviesData);
 
-module.exports = app;
+module.exports = router;

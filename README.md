@@ -1,4 +1,4 @@
-# my-favorites
+# my-movies
 
 Movie search application created via OMDb API. Deployed with Heroku.
 

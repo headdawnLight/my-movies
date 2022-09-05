@@ -1,7 +1,7 @@
-# Dockerfile for React client
+# Dockerfile for client
 
 # Build react client
-FROM node:14-alpine AS development
+FROM node:18-alpine AS development
 ENV NODE_ENV development
 
 # Working directory be app

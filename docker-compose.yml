@@ -1,0 +1,17 @@
+# version of docker-compose
+version: "3.9"
+# 'services' are equivalent to 'containers'
+services:
+  redis:
+    # Use Docker Hub base image 'redis:alpine'
+    image: "redis:alpine"
+  server:
+    restart: on-failure
+    build: ./server
+    ports:
+      - "5000:5000"
+  client:
+    restart: on-failure
+    build: ./client
+    ports:
+      - "3000:3000"

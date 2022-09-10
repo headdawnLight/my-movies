@@ -7,7 +7,7 @@ const redis = require("redis");
 
 // redis client on connect
 const redisClient = redis.createClient({
-  password: "testpass123",
+  url: process.env.REDIS_URL,
 });
 
 (async () => {

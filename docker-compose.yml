@@ -3,15 +3,16 @@ version: "3.9"
 # 'services' are equivalent to 'containers'
 services:
   redis:
-    # Use Docker Hub base image 'redis:alpine'
-    image: "redis:alpine"
+    image: redis:6.2-alpine
+    ports:
+      - "6379:6379"
+
   server:
-    restart: on-failure
     build: ./server
     ports:
       - "5000:5000"
+
   client:
-    restart: on-failure
     build: ./client
     ports:
       - "3000:3000"

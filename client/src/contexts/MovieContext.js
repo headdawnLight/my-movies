@@ -8,9 +8,11 @@ const MovieContextProvider = (props) => {
   const [search, setSearch] = useState("the matrix");
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     const fetchData = async () => {
       await axios
-        .get(`/api/search?q=${search}`)
+        .get(`/api/search?q=${search}`, { signal })
         .then((response) => {
           const trueOrFalse = response.data.results.Response;
           if (trueOrFalse !== "False") {
@@ -25,6 +27,7 @@ const MovieContextProvider = (props) => {
         });
     };
     fetchData();
+    return () => controller.abort();
   }, [search]);
 
   const onChangeHandler = (event) => {

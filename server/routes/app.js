@@ -24,11 +24,29 @@ const redisClient = redis.createClient({
 
 // fetch data from omdb api
 async function fetchApiData(searchTerm) {
-  const apiResponse = await axios.get(
-    `http://www.omdbapi.com/?s=${searchTerm}&apikey=${process.env.OMDB_API_KEY}`
-  );
+  // fetch first page if available
+  const pageOne = await axios
+    .get(
+      `http://www.omdbapi.com/?s=${searchTerm}&apikey=${process.env.OMDB_API_KEY}&page=1`
+    )
+    .then((res) => res.data)
+    .catch((error) => console.log(error));
+
+  // fetch second page if available
+  const pageTwo = await axios
+    .get(
+      `http://www.omdbapi.com/?s=${searchTerm}&apikey=${process.env.OMDB_API_KEY}&page=2`
+    )
+    .then((res) => res.data)
+    .catch((error) => console.log(error));
+
   console.log("Request sent to the API");
-  return apiResponse.data;
+
+  return {
+    Response: pageOne.Response,
+    totalResults: pageOne.totalResults,
+    Search: [...pageOne.Search, ...pageTwo.Search],
+  };
 }
 
 // get movies data from omdb api

@@ -4,11 +4,11 @@ const routes = require("./routes/app");
 const path = require("path");
 app.use("/", routes);
 
-const buildPath = path.join(__dirname, "build");
+// Serve static assets if in production
+app.use(express.static("build"));
 
-// gets the static files from the build folder
 app.get("*", (req, res) => {
-  res.sendFile(path.join(buildPath, "index.html"));
+  res.sendFile(path.resolve(__dirname, "build", "index.html")); // relative path
 });
 
 const PORT = process.env.PORT || 5000;

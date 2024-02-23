@@ -1,4 +1,4 @@
-import "../styles/SearchBar.css";
+import "./SearchBar.css";
 
 const SearchBar = ({ searchQuery }) => {
   const handleSubmit = (event) => {
@@ -7,12 +7,7 @@ const SearchBar = ({ searchQuery }) => {
 
   return (
     <form className="header-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search a movie..."
-        onChange={searchQuery}
-        minLength={3}
-      />
+      <input type="text" placeholder="Search a movie..." onChange={searchQuery} minLength={3} />
     </form>
   );
 };

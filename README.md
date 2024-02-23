@@ -8,7 +8,7 @@ website link: <a href="https://my-movies-headdawnlight.herokuapp.com" target="_b
 
 The app was inactive for a long time because Heroku ended its free deploy support. The app was deployed via Render.com, another free deploy service.
 
-## [click live link](https://render-my-movies.onrender.com/)
+## <a href="https://render-my-movies.onrender.com/" target="_blank">click live link!</a>
 
 ## Introduction
 
@@ -83,7 +83,7 @@ $ git clone https://github.com/headdawnLight/my-movies.git
 
 **2. Change directory and install npm packages to get the server and the client up**
 
-it is necessary to create a .env file in the server folder and set the omdb api key and redis url environment variables.
+it is necessary to create a .env file and set the omdb api key and redis url environment variables. local redis url: 'redis://127.0.0.1:6379'
 
 ```sh
 $ cd my-movies

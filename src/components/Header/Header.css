@@ -4,26 +4,44 @@
   height: auto;
 }
 
-.navbar {
+.navbar-container {
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  color: #000;
   background-color: yellow;
   box-shadow: 2px 2px 2px gray;
 }
 
-.navbar-brand {
+.navbar-link {
+  text-decoration: none;
+}
+
+.navbar-link:visited {
+  color: #000 !important;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+
+.brand-text {
   font-family: "Oleo Script Swash Caps", cursive;
   font-size: 5rem;
   margin-right: 2rem;
 }
 
-.navbar-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+.brand-logo {
+  height: 50px;
 }
 
 @media (max-width: 576px) {
-  .navbar-brand {
+  .brand-text {
     font-size: 4rem;
   }
 }
@@ -32,7 +50,7 @@
   .navbar-container {
     flex-direction: column;
   }
-  .navbar-brand {
+  .brand-text {
     font-size: 3rem;
   }
 }

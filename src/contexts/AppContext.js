@@ -1,9 +1,9 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
-export const MovieContext = createContext();
+export const AppContext = createContext();
 
-const MovieContextProvider = (props) => {
+const AppContextProvider = (props) => {
   // create context states
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("the matrix");
@@ -47,16 +47,10 @@ const MovieContextProvider = (props) => {
 
   // set minimum search term length
   const onChangeHandler = (event) => {
-    event.target.value.length >= 3
-      ? setSearch(event.target.value)
-      : setSearch("the matrix");
+    event.target.value.length >= 3 ? setSearch(event.target.value) : setSearch("the matrix");
   };
 
-  return (
-    <MovieContext.Provider value={{ data, search, onChangeHandler }}>
-      {props.children}
-    </MovieContext.Provider>
-  );
+  return <AppContext.Provider value={{ data, search, onChangeHandler }}>{props.children}</AppContext.Provider>;
 };
 
-export default MovieContextProvider;
+export default AppContextProvider;
